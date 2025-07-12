@@ -1,5 +1,5 @@
 import userModel from "../models/userModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import razorpay from 'razorpay'
@@ -59,7 +59,6 @@ export const userCredits = async (req, res) => {
     try {
         const { userId } = req.body;
         const user = await userModel.findById(userId);
-        console.log(user)
         return res.json({ success: true, credits: user.creditBalance, user: { name: user.name } })
     } catch (error) {
         console.log(error)
@@ -146,9 +145,9 @@ export const verifyRazorPay = async (req, res) => {
 
             await transactionModel.findByIdAndUpdate(transactionData._id, { payment: true })
             res.json({ success: true, message: 'Credits Added' })
-        }else{
+        } else {
             res.json({ success: false, message: 'Payment failed' })
-            
+
         }
     } catch (error) {
         console.log(error)
