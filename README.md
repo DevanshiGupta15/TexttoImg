@@ -147,4 +147,4 @@ MIT License. Feel free to use and modify!
 
 ## 🤝 Connect
 
-Built with ❤️ by [Your Name](https://github.com/nandhan7)
+Built with ❤️ by [B V Nandhan](https://github.com/nandhan7)
