@@ -1,2 +1,8 @@
-node_modules/
+# Dependencies and Environments
+/node_modules
+/.venv
+/client/node_modules
+/server/node_modules
+
+# Environment Variables (CRITICAL: Do not commit your keys!)
 .env
