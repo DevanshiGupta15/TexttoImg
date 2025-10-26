@@ -1,11 +1,12 @@
 import userModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
 import razorpay from 'razorpay'
 import transactionModel from "../models/transactionModel.js";
 
-dotenv.config();
+
+// Define the JWT Secret key once for reliable use in all functions
+const JWT_SECRET = 'c0833bc9eab92164e1b49bfac4388ce1'; 
 
 export const registerUser = async (req, res) => {
     try {
@@ -25,7 +26,8 @@ export const registerUser = async (req, res) => {
 
         const user = await newUser.save();
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        // FIX: Using the locally defined JWT_SECRET
+        const token = jwt.sign({ id: user._id }, JWT_SECRET); 
 
         res.json({ success: true, token, user: { name: user.name } })
     }
@@ -44,7 +46,8 @@ export const loginUser = async (req, res) => {
         }
         const isMatch = await bcrypt.compare(password, user.password);
         if (isMatch) {
-            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+            // FIX: Using the locally defined JWT_SECRET
+            const token = jwt.sign({ id: user._id }, JWT_SECRET); 
             return res.json({ success: true, token, user: { name: user.name } })
         } else {
             return res.json({ success: false, message: "Invalid Credentials" })

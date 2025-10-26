@@ -13,7 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const App = () => {
   const { showLogin } = useContext(AppContext);
   return (
-    <div className="px-4 sm:px-10  md:px-14 lg:px-28 min-h-screen bg-gradient-to-b from-teal-50 to-orange-50">
+    <div className="px-4 sm:px-10  md:px-14 lg:px-28 min-h-screen bg-gradient-to-b from-pink-200 to-orange-150">
       <ToastContainer position="top-center"/>
       <Navbar />
       {showLogin && <Login />}

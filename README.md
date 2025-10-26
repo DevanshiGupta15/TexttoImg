@@ -1,7 +1,7 @@
 
-# 🖼️ Imagify - AI Image Generator from Text Prompts
+🖼️ Text To Img - AI Image Generator from Text Prompts
 
-**Imagify** is a full-stack application that lets users generate stunning images from text prompts using the powerful Clipdrop API. Built with a React frontend and Node.js backend, it provides a clean and user-friendly interface to transform imagination into visuals.
+**Text To Img** is a full-stack application that lets users generate stunning images from text prompts using the powerful Clipdrop API. Built with a React frontend and Node.js backend, it provides a clean and user-friendly interface to transform imagination into visuals.
 
 ---
 
@@ -17,7 +17,7 @@
 
 ---
 
-## 📊 Sequence Diagram - Imagify
+## 📊 Sequence Diagram - Text to Img
 
 ```mermaid
 sequenceDiagram
@@ -38,17 +38,12 @@ sequenceDiagram
 
 ## 🧰 Tech Stack
 
-| Frontend     | Backend      | API/Services    |
-|--------------|--------------|-----------------|
-| React.js     | Node.js      | Clipdrop API    |
-| Axios        | Express.js   | dotenv          |
-| Tailwind CSS | CORS         | Vercel / Render |
+| Frontend     | Backend      | API/Services    | DataBase        |
+|--------------|--------------|-----------------|-----------------|
+| React.js     | Node.js      | Clipdrop API    |MongoDb          |
+| CSS          | Express.js   | dotenv          |MongoShell       |
+|              |              | Vercel / Render |                 |
 
----
-
-## 📸 Demo
-
-[Watch the demo](https://drive.google.com/file/d/19D3t-t6xzSqgMHG-1iv9WeZ7zSNI1HDL/view)
 
 ---
 
@@ -56,8 +51,8 @@ sequenceDiagram
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/nandhan7/imagify.git
-cd imagify
+git clone https://github.com/DevanshiGupta15/TexttoImg
+cd TexttoImg
 ```
 
 ### 2. Set Up Backend
