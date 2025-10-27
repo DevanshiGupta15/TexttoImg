@@ -1,5 +1,6 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import 'dontenv/config':
+//import dotenv from 'dotenv';
+//dotenv.config();
 
 // Other imports
 import session from 'express-session';
