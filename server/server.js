@@ -1,13 +1,11 @@
 import 'dotenv/config';
 import dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
+import session from 'express-session';
+import passport from 'passport';
+import './config/passport.js';
 
-// Debug logs to check if env vars are loaded (add these right after dotenv)
-//console.log('JWT_SECRET loaded:', process.env.JWT_SECRET ? 'Yes' : 'No');
-//console.log('RAZORPAY_KEY_ID loaded:', process.env.RAZORPAY_KEY_ID ? 'Yes' : 'No');
-//console.log('JWT_SECRET value (first 10 chars):', process.env.JWT_SECRET ? process.env.JWT_SECRET.substring(0, 10) + '...' : 'undefined');
-
-// Other imports (after dotenv and logs)
+// Other imports
 import express from 'express';
 import cors from 'cors';
 import connectDB from './config/mongodb.js';
@@ -19,9 +17,29 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests ONLY from your frontend
+    credentials: true                // Allow cookies and authorization headers
+}));
 
 await connectDB();
+
+app.use(session({
+    // CRITICAL FIX: Use a unique, long string for session encryption
+    secret: 'c0833bc9eab92164e1b49bfac4388ce1_SESSION', 
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        // Must be set to 'lax' for local HTTP redirects (Google Auth) to work
+        sameSite: 'lax', 
+        // Must be 'false' for local 'http://localhost' connections
+        secure: false,   
+        maxAge: 1000 * 60 * 60 * 24 
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/api/user", userRouter);
 app.use("/api/image", imageRouter);
@@ -29,3 +47,17 @@ app.get("/", (req, res) => res.send("Api working fine"));
 
 app.listen(PORT, () => console.log("Server listening on port " + PORT));
 
+
+// Google Login Initiation
+app.get('/api/auth/google',
+    passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+// Google Callback Route
+app.get('/api/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }), // Redirect to /login on failure
+    (req, res) => {
+        // Successful authentication, redirect client to the homepage
+        res.redirect('http://localhost:5173/'); 
+    }
+);

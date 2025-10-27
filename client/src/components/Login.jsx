@@ -112,6 +112,33 @@ const Login = () => {
         <button className="bg-blue-600 w-full text-white py-2 rounded-full">
           {state === "Login" ? "Login" : "Create Account"}
         </button>
+
+        {/* --- GOOGLE SIGN-IN BUTTON START --- */}
+        <div className="mt-4 flex flex-col gap-2">
+            <div className="relative flex justify-center py-4">
+                <div className="bg-white px-2 text-sm text-gray-500">
+                    OR
+                </div>
+            </div>
+            
+            <a 
+                href={`${backendUrl}/api/auth/google`} 
+                className="flex items-center justify-center space-x-2 rounded-full border border-gray-300 py-2.5 text-gray-700 bg-white hover:bg-gray-50 transition duration-150 shadow-sm"
+            >
+                {/* Simple Google Icon SVG Path for visual clarity */}
+                <svg viewBox="0 0 48 48" className="w-5 h-5">
+                    <path fill="#FFC107" d="M43.611,20.083H42V20H24v8.917h11.758c-1.353,6.241-7.14,10.871-11.758,10.871c-5.83,0-10.566-4.736-10.566-10.566s4.736-10.566,10.566-10.566c3.21,0,5.922,1.45,7.912,3.31l7.46-7.159c-3.864-3.57-8.895-5.748-15.372-5.748C11.444,4.583,4.583,11.444,4.583,20c0,8.556,6.861,15.417,15.417,15.417c8.441,0,14.64-5.917,15.118-14.75h-11.758V20.083z"/>
+                    <path fill="#4CAF50" d="M19.999,35.417c-3.882,0-7.279-1.928-9.375-4.858l-7.46,7.159c2.729,2.695,6.342,4.354,10.74,4.354c4.686,0,8.749-1.879,11.758-4.871l-7.46-7.159C24.499,33.588,22.251,35.417,19.999,35.417z"/>
+                    <path fill="#1976D2" d="M19.999,10.25c3.21,0,5.922,1.45,7.912,3.31l7.46-7.159c-3.864-3.57-8.895-5.748-15.372-5.748C11.444,4.583,4.583,11.444,4.583,20c0,2.152,0.48,4.187,1.334,6.012l7.46-7.159C13.251,12.23,16.036,10.25,19.999,10.25z"/>
+                    <path fill="#EA4335" d="M43.611,20.083H24v8.917h11.758c-0.478,8.833-6.677,14.75-15.118,14.75c-4.494,0-8.24-1.659-10.74-4.354l-7.46,7.159c3.009,2.992,7.072,4.871,11.758,4.871c8.441,0,15.291-6.86,15.291-15.417C35.416,11.444,28.555,4.583,19.999,4.583c-4.686,0-8.749,1.879-11.758,4.871l7.46,7.159C15.584,12.23,17.751,10.25,19.999,10.25h15.417V20.083z" transform="translate(0 0)"/>
+                </svg>
+                <span className="font-medium text-sm">
+                    Continue with Google
+                </span>
+            </a>
+        </div>
+        {/* --- GOOGLE SIGN-IN BUTTON END --- */}
+
         {state == "Login" ? (
           <p className="mt-5 text-center">
             Don't have an account?

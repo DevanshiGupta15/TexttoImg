@@ -60,7 +60,7 @@ cd TexttoImg
 cd backend
 npm install
 # Create a .env file and add your Clipdrop API key
-echo "CLIPDROP_API_KEY=your_api_key_here" > .env
+echo "CLIPDROP_API_KEY=2527f5dfc417a7acdbf267a8aba1c4c0f5c2a9ac4311e1aeb2496c802c4ec3ae86d26c408f92b28ecf0546e212e5db21" > .env
 npm start
 ```
 
@@ -91,7 +91,7 @@ The server sends the prompt to the Clipdrop API and returns the generated image 
 ## 📁 Project Structure
 
 ```
-imagify/
+TexttoImg/
 │
 ├── frontend/          # React app
 │   ├── src/
@@ -104,7 +104,6 @@ imagify/
 │   └── ...
 ```
 
----
 
 ## 🛡️ Environment Variables
 
@@ -114,7 +113,6 @@ Create a `.env` file in the `backend/` directory:
 CLIPDROP_API_KEY=your_clipdrop_api_key
 ```
 
----
 
 ## 💡 Future Enhancements
 
@@ -130,16 +128,9 @@ CLIPDROP_API_KEY=your_clipdrop_api_key
 - [Clipdrop API](https://clipdrop.co/apis) for image generation
 - [React.js](https://react.dev/)
 - [Express.js](https://expressjs.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-
----
-
-## 📄 License
-
-MIT License. Feel free to use and modify!
 
 ---
 
 ## 🤝 Connect
 
-Built with ❤️ by [B V Nandhan](https://github.com/nandhan7)
+Built with ❤️ by [Devanshi Gupta](https://github.com/DevanshiGupta15/TexttoImg)

@@ -58,21 +58,21 @@ export const stepsData = [
 export const testimonialsData = [
   {
     image: profile_img_1,
-    name: 'Donald Jackman',
+    name: 'Joe Kapson',
     role: 'Graphic Designer',
     stars: 5,
     text: `I've been using Text To Img for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
   },
   {
     image: profile_img_2,
-    name: 'Richard Nelson',
+    name: 'Nelson Kimson',
     role: 'Content Creator',
     stars: 5,
     text: `I've been using Text To Img for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
   },
   {
     image: profile_img_1,
-    name: 'Donald Jackman',
+    name: 'Donald Glover',
     role: ' Graphic Designer',
     stars: 5,
     text: `I've been using Text To Img for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
@@ -82,19 +82,19 @@ export const testimonialsData = [
 export const plans = [
   {
     id: 'Basic',
-    price: 10,
+    price: 499,
     credits: 100,
     desc: 'Best for personal use.'
   },
   {
     id: 'Advanced',
-    price: 50,
+    price: 1499,
     credits: 500,
     desc: 'Best for business use.'
   },
   {
     id: 'Business',
-    price: 250,
+    price: 2499,
     credits: 5000,
     desc: 'Best for enterprise use.'
   },
