@@ -41,6 +41,25 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// D:\TexttoImg\server\server.js
+
+// ... other imports ...
+import path from 'path'; // Import path module
+import { fileURLToPath } from 'url'; // Needed for __dirname in ES modules
+
+// Calculate __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
+
+app.use("/api/user", userRouter);
+app.use("/api/image", imageRouter);
+
 app.use("/api/user", userRouter);
 app.use("/api/image", imageRouter);
 app.get("/", (req, res) => res.send("Api working fine"));
