@@ -1,24 +1,24 @@
 // D:\TexttoImg\server\config\passport.js
 
-import 'dotenv/config'; // Loads variables from .env
+import 'dotenv/config'; // Keep this for loading other env vars if needed
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import userModel from '../models/userModel.js';
 
-// --- CORRECTED: Use environment variables for security ---
-// These variables will be loaded from your private .env file
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-// --- END CORRECTION ---
+// --- RESTORED: Hardcode the required client ID and Secret for reliable local loading ---
+// Make sure these are your ACTUAL keys
+const GOOGLE_CLIENT_ID = '476965003547-qd889k5qkvdploaf2dd6av6rc3c7lgis.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = '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';
+// --- END RESTORED ---
 
 // -- Google OAuth Strategy --
 passport.use(new GoogleStrategy({
-    // Use the variables loaded from the environment
+    // Use the hardcoded constants
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
     callbackURL: "http://localhost:4000/api/auth/google/callback"
 }, async (accessToken, refreshToken, profile, done) => {
-    console.log('OAuth Callback Triggered'); // Keep for debugging if needed
+    console.log('OAuth Callback Triggered'); // Keep for debugging
     console.log('Profile:', profile);
     try {
         let user = await userModel.findOne({ googleId: profile.id });
@@ -36,8 +36,7 @@ passport.use(new GoogleStrategy({
             done(null, user);
         }
     } catch (error) {
-        // Log the specific database error if user creation fails
-        console.error("Error during Google OAuth user find/create:", error); 
+        console.error("Error during Google OAuth user find/create:", error);
         done(error, null);
     }
 }));
