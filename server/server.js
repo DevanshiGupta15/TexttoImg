@@ -1,5 +1,5 @@
-// --- Make this the ABSOLUTE FIRST line ---
-import 'dotenv/config'; // Ensures environment variables load immediately
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Other imports
 import session from 'express-session';
