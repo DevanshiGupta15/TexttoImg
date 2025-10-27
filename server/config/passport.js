@@ -7,8 +7,8 @@ import userModel from '../models/userModel.js';
 
 // --- RESTORED: Hardcode the required client ID and Secret for reliable local loading ---
 // Make sure these are your ACTUAL keys
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const GOOGLE_CLIENT_ID = '476965003547-qd889k5qkvdploaf2dd6av6rc3c7lgis.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = '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';
 // --- END RESTORED ---
 
 // -- Google OAuth Strategy --
